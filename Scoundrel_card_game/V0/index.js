@@ -28,4 +28,12 @@ function shuffleArray(deck){
 
 
 let deck = getDeck();
-console.log(deck)
+shuffleArray(deck);
+console.log(deck[51]);
+let card = deck[51];
+deck.pop();
+console.log(deck[51], card);
+deck.unshift(card);
+console.log(deck[0]);
+console.log(deck[51]);
+

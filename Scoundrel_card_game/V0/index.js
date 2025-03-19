@@ -1,50 +1,31 @@
-let deck = {};
-for(let i = 0; i < 52; i++){
-    let suit = "", rank = "", power = "", effect = "";
-    switch(true){
-        case(i < 13):{ 
-            suit = "spades";
-            effect = "damage"
-        }
-        case(i >= 13 && i < 26):{
-            suit = "hearts";
-            effect = "healing";
-        }
-        case(i >= 26 && i < 39):{
-            suit = "diamonds";
-            effect = "weapon";
-        }
-        case(i >= 39 && i < 52):{
-            suit = "clubs";
-            effect = "damage";
+const suits = ["spades", "diamonds", "hearts", "clubs"];
+const ranks = ['2','3','4','5','6','7','8','9','10','Jack','Queen','King','ace'];
+const effects = ["damage","weapon","healing"];
+let hp = 20;
+
+function getDeck(){
+    let deck = new Array();
+    for(let i = 0; i < suits.length; i++){
+        for(let x = 0; x < ranks.length; x++){
+            let card = {Rank: ranks[x], Suit: suits[i], Power: x + 2, Effect: effects[i % 3]};
+            deck.push(card);
+
         }
     }
-
-    switch(true){
-        case(i % 13 == 0):{
-            rank = "ace";
-            power = "14";
-        }
-        case(i % 13 > 0 && i % 13 <= 9):{
-            rank = toString(i + 1);
-            power = i + 1;
-        }
-        case(i % 13 == 10):{
-            rank = "Jack";
-            power = "11";
-        }
-        case(i % 13 == 11):{
-            rank = "Queen";
-            power = "12";
-        }
-        case(i % 13 == 0):{
-            rank = "King";
-            power = "13";
-        }
-    }
-    deck.toString(i) = {"suit":suit, "rank":rank, "power":power, "effect":effect};
-
+    return deck;
 }
 
-console.log(deck);
-console.log("finish")
+function shuffleArray(deck){
+    for(let i = 0; i < 1000; i++){
+        let ind1 = Math.floor(Math.random() * deck.length);
+        let ind2 = Math.floor(Math.random() * deck.length);
+        let placeholder = deck[ind1];
+        deck[ind1] = deck[ind2];
+        deck[ind2] = placeholder;
+    }
+}
+
+
+
+let deck = getDeck();
+console.log(deck)

@@ -1,5 +1,5 @@
 const suits = ["spades", "diamonds", "hearts", "clubs"];
-const ranks = ['2','3','4','5','6','7','8','9','10','Jack','Queen','King','ace'];
+const ranks = ['02','03','04','05','06','07','08','09','10','J','Q','K','A'];
 const effects = ["damage","weapon","healing"];
 const Field = document.querySelector(".field")
 let hp = 20;
@@ -51,15 +51,15 @@ function runAway(field, deck){
 }
 
 function displayField(field, deck){
-    const card1 = document.createElement("p");
-    const card2 = document.createElement("p");
-    const card3 = document.createElement("p");
-    const card4 = document.createElement("p");
+    const card1 = document.createElement("img");
+    const card2 = document.createElement("img");
+    const card3 = document.createElement("img");
+    const card4 = document.createElement("img");
 
-    card1.textContent = `${field[0].Rank} of ${field[0].Suit}`;
-    card2.textContent = `${field[1].Rank} of ${field[1].Suit}`;
-    card3.textContent = `${field[2].Rank} of ${field[2].Suit}`;
-    card4.textContent = `${field[3].Rank} of ${field[3].Suit}`;
+    card1.src = `./kenney_playing-cards-pack/PNG/Cards (large)/card_${field[0].Suit}_${field[0].Rank}.png`;
+    card2.src = `./kenney_playing-cards-pack/PNG/Cards (large)/card_${field[1].Suit}_${field[1].Rank}.png`;
+    card3.src = `./kenney_playing-cards-pack/PNG/Cards (large)/card_${field[2].Suit}_${field[2].Rank}.png`;
+    card4.src = `./kenney_playing-cards-pack/PNG/Cards (large)/card_${field[3].Suit}_${field[3].Rank}.png`;
 
     Field.appendChild(card1);
     Field.appendChild(card2);

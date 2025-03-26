@@ -1,8 +1,9 @@
 const suits = ["spades", "diamonds", "hearts", "clubs"];
 const ranks = ['02','03','04','05','06','07','08','09','10','J','Q','K','A'];
 const effects = ["damage","weapon","healing"];
-const Field = document.querySelector(".field");
-const message_to_user = document.getElementById("messages")
+const Field = document.getElementById(".field");
+const Deck = document.getElementById(".deck");
+const message_to_user = document.getElementById("messages");
 let hp = 20;
 let attack = 0;
 let durability = 15;
